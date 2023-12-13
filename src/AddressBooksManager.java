@@ -14,6 +14,27 @@ public class AddressBooksManager {
         this.cityContacts = new HashMap<>();
         this.stateContacts = new HashMap<>();
     }
+      // UC10: get number of contacts from city
+    public int countInCity(String city) {
+        ArrayList<Contact> contacts;
+        if (cityContacts.containsKey(city)) {
+            contacts = cityContacts.get(city);
+        } else {
+            contacts = new ArrayList<>();
+        }
+        return contacts.size();
+    }
+
+    // UC10: get number of contacts from state
+    public int countInState(String state) {
+        ArrayList<Contact> contacts;
+        if (stateContacts.containsKey(state)) {
+            contacts = stateContacts.get(state);
+        } else {
+            contacts = new ArrayList<>();
+        }
+        return contacts.size();
+    }
 
     // method to update city contacts
     public void updateCityContacts(String city, Contact contact) {
@@ -113,6 +134,12 @@ public class AddressBooksManager {
 
                     // adding new contact in the address book
                     book.addContact(first_name, last_name, address, city, state, zip, phone_number, email);
+
+                    // UC9: update city and state contacts
+                    this.updateCityContacts(city,
+                            new Contact(first_name, last_name, address, city, state, zip, phone_number, email));
+                    this.updateStateContacts(state,
+                            new Contact(first_name, last_name, address, city, state, zip, phone_number, email));
 
                     System.out.println("Contact added successfully!\n");
                     break;
