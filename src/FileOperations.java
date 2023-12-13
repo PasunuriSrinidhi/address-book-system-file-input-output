@@ -126,7 +126,7 @@ public class FileOperations {
         }
     }
 
-    // method to check if file exists or not
+    // method for checking if file exists or not
     public static boolean checkIfExists(String filePath) {
         Path path = Path.of(filePath);
         return Files.exists(path);
