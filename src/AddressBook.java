@@ -12,7 +12,7 @@ public class AddressBook {
     // UC1: add new contact function
     public void addContact(String first_name, String last_name, String address, String city, String state, int zip,
             String phone_number, String email) {
-        addressbook.add(new Contact(first_name, last_name, address, city, state, zip, phone_number, email));
+        addressbook.put(first_name, new Contact(first_name, last_name, address, city, state, zip, phone_number, email));
     }
 
     public static void printAddressBook(AddressBook book) {
