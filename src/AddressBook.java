@@ -12,6 +12,7 @@ public AddressBook(String name) {
         this.name = name;
         this.addressbook = new HashMap<String, Contact>();
     }
+      
     // UC1: add new contact function
     public void addContact(String first_name, String last_name, String address, String city, String state, int zip,
             String phone_number, String email) {
@@ -31,5 +32,9 @@ public AddressBook(String name) {
             i++;
             System.out.println();
         }
+    }
+       // UC7: method to check for duplicate entry
+    public boolean hasDuplicate(String first_name) {
+        return this.addressbook.containsKey(first_name.toLowerCase().trim());
     }
 }
