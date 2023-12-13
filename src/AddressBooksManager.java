@@ -270,6 +270,34 @@ public class AddressBooksManager {
 
                 default:
                     System.out.println("Invalid choice.");
+         // UC12: sort address book by state
+                case 7:
+                    ArrayList<Contact> sortedByState = book.sortByState();
+                    if (sortedByState.isEmpty()) {
+                        System.out.println("\nAddress book is empty.\n");
+                    } else {
+                        System.out.println("\nContacts in this address book are: ");
+                        for (int i = 0; i < sortedByState.size(); i++) {
+                            System.out.println((i + 1) + ")\n" + sortedByState.get(i).toString() + "\n");
+                        }
+                    }
+                    break;
+
+                // UC12: sort address book by zip
+                case 8:
+                    ArrayList<Contact> sortedByZip = book.sortByZip();
+                    if (sortedByZip.isEmpty()) {
+                        System.out.println("\nAddress book is empty.\n");
+                    } else {
+                        System.out.println("\nContacts in this address book are: ");
+                        for (int i = 0; i < sortedByZip.size(); i++) {
+                            System.out.println((i + 1) + ")\n" + sortedByZip.get(i).toString() + "\n");
+                        }
+                    }
+                    break;
+
+                default:
+                    System.out.println("Invalid choice.");
                     break;
             }
         }
