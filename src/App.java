@@ -1,23 +1,28 @@
 import java.util.Scanner;
+
+import Exceptions.*;
 import java.util.ArrayList;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+            throws InvalidFirstNameException, InvalidLastNameException, InvalidEmailException,
+            InvalidPhoneNumberException {
         System.out.println("Welcome to Address Book Program");
         App app = new App();
 
         // UC6: creating address book manager to handle multiple address books
-        AddressBooksManager manager = new AddressBooksManager();
-
-       app.takeConsoleInputs(manager);
+        AddressBooksManager manager = new AddressBooksManager("addressbooks");
+        app.takeConsoleInputs(manager);
     }
 
-   public static void takeConsoleInputs(AddressBooksManager manager) {
+    public void takeConsoleInputs(AddressBooksManager manager)
+            throws InvalidFirstNameException, InvalidLastNameException, InvalidEmailException,
+            InvalidPhoneNumberException {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("\nFollowing functions can be executed:");
             System.out.println("[1] Create New Address Book");
-            System.out.println("[2] Access Address Book");
+            System.out.println("[2] Access Address Book"); // TODO: use file I/O
             System.out.println("[3] View all Address Books");
             System.out.println("[4] Search contacts by City");
             System.out.println("[5] Search contacts by State");
@@ -44,7 +49,7 @@ public class App {
                     String search_name = sc.nextLine();
                     if (manager.getBookbyName(search_name) != null) {
                         System.out.println("\nAccessing Address Book " + search_name);
-                        AddressBooksManager.accessBook(manager.getBookbyName(search_name));
+                        manager.accessBook(manager.getBookbyName(search_name));
                     } else {
                         System.out.println("No Address Book found with this name.");
                     }
@@ -54,6 +59,7 @@ public class App {
                     System.out.println("Following are all the books in this manager:");
                     manager.getAllBooks();
                     break;
+
                 case 4:
                     System.out.print("Enter name of City: ");
                     String city = sc.nextLine();
@@ -83,7 +89,8 @@ public class App {
                         }
                     }
                     break;
-                    case 6:
+
+                case 6:
                     System.out.print("Enter name of city: ");
                     String city_search = sc.nextLine();
                     System.out.println(
