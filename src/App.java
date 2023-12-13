@@ -1,8 +1,10 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book Program");
+        App app = new App();
 
         // UC6: creating address book manager to handle multiple address books
         AddressBooksManager manager = new AddressBooksManager();
@@ -50,7 +52,7 @@ public class App {
                     System.out.println("Following are all the books in this manager:");
                     manager.getAllBooks();
                     break;
- case 4:
+                case 4:
                     System.out.print("Enter name of City: ");
                     String city = sc.nextLine();
                     ArrayList<Contact> city_contacts = manager.findByCity(city);
