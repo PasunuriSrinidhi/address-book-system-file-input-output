@@ -19,6 +19,8 @@ public class App {
             System.out.println("Which function would you like to execute?");
             System.out.println("[1] Add New Contact");
             System.out.println("[2] Edit Existing Contact");
+            System.out.println("[3] Delete Existing Contact");
+            System.out.println("[4] Print Address Book");
             System.out.print("Enter your choice (Enter 0 to exit): ");
             int choice = sc.nextInt();
             sc.nextLine();
@@ -152,6 +154,22 @@ public class App {
                     } else {
                         System.out.println("There is no contact having this first name.\n");
                     }
+                    break;
+// UC4: delete existing contact using contact's first name
+                case 3:
+                    System.out.print("Enter first name of contact you wish to delete: ");
+                    String delete_name = sc.nextLine().trim();
+
+                    if (book.addressbook.containsKey(delete_name)) {
+                        book.addressbook.remove(delete_name);
+                        System.out.println("Contact Deleted Successfully!\n");
+                    } else {
+                        System.out.println("There is no contact having this first name.\n");
+                    }
+                    break;
+
+                case 4:
+                    book.printAddressBook();
                     break;
 
                 default:
