@@ -15,8 +15,8 @@ public class AddressBook {
         addressbook.put(first_name, new Contact(first_name, last_name, address, city, state, zip, phone_number, email));
     }
 
-    public static void printAddressBook(AddressBook book) {
-      if (this.addressbook.isEmpty()) {
+    public void printAddressBook() {
+        if (this.addressbook.isEmpty()) {
             System.out.println("\nAddress book is empty.");
             return;
         }
