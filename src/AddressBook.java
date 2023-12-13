@@ -1,5 +1,8 @@
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map.Entry;
+
 
 
 public class AddressBook {
@@ -12,7 +15,8 @@ public AddressBook(String name) {
         this.name = name;
         this.addressbook = new HashMap<String, Contact>();
     }
-      
+
+     
     // UC1: add new contact function
     public void addContact(String first_name, String last_name, String address, String city, String state, int zip,
             String phone_number, String email) {
@@ -56,6 +60,12 @@ public AddressBook(String name) {
                 contacts.add(entry.getValue());
             }
         }
+        return contacts;
+    }
+       // UC11: method to sort entries by name
+    public ArrayList<Contact> sortByName() {
+        ArrayList<Contact> contacts = new ArrayList<>(this.addressbook.values());
+        contacts.sort((c1, c2) -> c1.first_name.compareTo(c2.first_name));
         return contacts;
     }
 }
