@@ -18,6 +18,7 @@ public class App {
         while (true) {
             System.out.println("Which function would you like to execute?");
             System.out.println("[1] Add New Contact");
+            System.out.println("[2] Edit Existing Contact");
             System.out.print("Enter your choice (Enter 0 to exit): ");
             int choice = sc.nextInt();
             sc.nextLine();
