@@ -1,12 +1,15 @@
 import java.util.HashMap;
-import java.util.Map;
+import java.util.Map.Entry;
 
 
 public class AddressBook {
       
       // UC3: used HashMap for efficient searching by name
+       String name; // UC6
     HashMap<String, Contact> addressbook;
-  public AddressBook() {
+      
+public AddressBook(String name) {
+        this.name = name;
         this.addressbook = new HashMap<String, Contact>();
     }
     // UC1: add new contact function
