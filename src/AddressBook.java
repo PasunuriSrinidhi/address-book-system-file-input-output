@@ -1,12 +1,13 @@
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class AddressBook {
-    private ArrayList<Contact> addressbook = new ArrayList<Contact>();
-
-    public AddressBook() {
-        this.addressbook = new ArrayList<Contact>();
+      // UC3: used HashMap for efficient searching by name
+    HashMap<String, Contact> addressbook;
+  public AddressBook() {
+        this.addressbook = new HashMap<String, Contact>();
     }
-
     // UC1: add new contact function
     public void addContact(String first_name, String last_name, String address, String city, String state, int zip,
             String phone_number, String email) {
