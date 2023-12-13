@@ -9,7 +9,7 @@ public class App {
         // UC6: creating address book manager to handle multiple address books
         AddressBooksManager manager = new AddressBooksManager();
 
-       takeConsoleInputs(manager);
+       app.takeConsoleInputs(manager);
     }
 
    public static void takeConsoleInputs(AddressBooksManager manager) {
@@ -21,6 +21,8 @@ public class App {
             System.out.println("[3] View all Address Books");
             System.out.println("[4] Search contacts by City");
             System.out.println("[5] Search contacts by State");
+            System.out.println("[6] Count contacts by City");
+            System.out.println("[7] Count contacts by State");
             System.out.print("Enter your choice (Enter 0 to exit): ");
             int choice = sc.nextInt();
             sc.nextLine();
@@ -80,6 +82,19 @@ public class App {
                             System.out.println("  " + (i + 1) + ") " + contact.first_name + " " + contact.last_name);
                         }
                     }
+                    break;
+                    case 6:
+                    System.out.print("Enter name of city: ");
+                    String city_search = sc.nextLine();
+                    System.out.println(
+                            "Number of contacts from " + city_search + " are: " + manager.countInCity(city_search));
+                    break;
+
+                case 7:
+                    System.out.print("Enter name of state: ");
+                    String state_search = sc.nextLine();
+                    System.out.println(
+                            "Number of contacts from " + state_search + " are: " + manager.countInState(state_search));
                     break;
 
                 default:
