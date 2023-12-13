@@ -37,4 +37,25 @@ public AddressBook(String name) {
     public boolean hasDuplicate(String first_name) {
         return this.addressbook.containsKey(first_name.toLowerCase().trim());
     }
+      // UC8: method to get all contacts by city
+    public ArrayList<Contact> getAllbyCity(String city) {
+        ArrayList<Contact> contacts = new ArrayList<>();
+        for (Entry<String, Contact> entry : this.addressbook.entrySet()) {
+            if (entry.getValue().city.equals(city)) {
+                contacts.add(entry.getValue());
+            }
+        }
+        return contacts;
+    }
+
+    // UC8: method to get all contacts by state
+    public ArrayList<Contact> getAllbyState(String state) {
+        ArrayList<Contact> contacts = new ArrayList<>();
+        for (Entry<String, Contact> entry : this.addressbook.entrySet()) {
+            if (entry.getValue().state.equals(state)) {
+                contacts.add(entry.getValue());
+            }
+        }
+        return contacts;
+    }
 }
